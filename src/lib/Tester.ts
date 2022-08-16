@@ -1,7 +1,3 @@
-/* eslint-disable functional/prefer-readonly-type */
-/* eslint-disable functional/no-this-expression */
-/* eslint-disable functional/no-return-void */
-/* eslint-disable functional/no-class */
 /*
  * class Tester
  */
@@ -23,8 +19,3 @@ export class Tester {
         });
     }
 }
-
-// const tester = new Tester([ "LogObjectProcessorTest" ]);
-// tester.start();
-// console.log( "end testing testable objects." );
-

@@ -1,11 +1,12 @@
+import IObserver from './IObserver';
+import ISubject from './ISubject';
 /*
- *  interface MonitoredObject
+ * interface IMonitoredObject
  */
+interface IMonitoredObject extends ISubject {
+    observers: Array< IObserver >;
+    getId(): string;
+    setId( id: string ): void;
+}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type IMonitoredObject = {
-    readonly id: string;
-    logUpdate( message: string ): void;
-    getMonitorId(): string;
-    setMonitorId( newId:string ): void;
-};
+export default IMonitoredObject;

@@ -1,12 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import IQueryProcessor from './IQueryResultProcessor';
 /*
  *  interface IApiArgs
  */
-type IApiArgs = {
-    thisObject: any;
-    trigger: string;
+interface IApiArgs {
+    data: unknown;
+    queryResultProcessor: IQueryProcessor;
     query: string;
-    data: any;
-};
+}
 
 export default IApiArgs;

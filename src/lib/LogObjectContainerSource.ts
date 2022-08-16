@@ -34,12 +34,13 @@ export class LogObjectContainerSource {
 
     refreshFromDatabase( object_view_id: string ) {
         jQuery( document ).on( "consumeData", this.consumeData );
-        const args = {
-            query: "select object_data from monitored_objects where object_view_id ='" + object_view_id + "'",
-            trigger: "consumeData",
-            data: {},
-            thisObject: this };
-        this.dataSource.runQuery( args );
+        console.log( object_view_id ); // to get it to compile...
+        // const args = {
+        //     query: "select object_data from monitored_objects where object_view_id ='" + object_view_id + "'",
+        //     trigger: "consumeData",
+        //     data: {},
+        //     thisObject: this };
+        // this.dataSource.runQuery( args );
     }
 
     consumeData( _event: any, result: { thisObject: any; data: string[][]; }) {
