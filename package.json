@@ -1,11 +1,11 @@
 {
-  "name": "log-object-processor",
-  "version": "1.0.29",
+  "name": "monitored-object-ts",
+  "version": "0.0.1",
   "description": "Controls an internal Q for processing logs.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/EGAdams/log-object-processor",
+  "repository": "https://github.com/EGAdams/monitored-object-ts",
   "license": "MIT",
   "keywords": [],
   "scripts": {
