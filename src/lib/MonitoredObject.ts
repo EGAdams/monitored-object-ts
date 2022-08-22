@@ -1,8 +1,10 @@
 import FreshToolBox from './FreshToolBox';
+import { ILogObject } from './ILogObject';
 import IMonitoredObject from './IMonitoredObject';
 import IObserver from './IObserver';
 import ISubject from './ISubject';
 import ITestable from './ITestable';
+import { LogObjectFactory } from './LogObjectFactory';
 import ObserverFactory from './ObserverFactory';
 /**
  *  @class MonitoredObject
@@ -25,6 +27,8 @@ import ObserverFactory from './ObserverFactory';
 export default class MonitoredObject implements IMonitoredObject, ISubject, ITestable {
     private observerFactory  = new ObserverFactory();
     public observers         = new Array< IObserver >();
+    public logObjects        = new Array< ILogObject >();
+    public logObjectFactory  = new LogObjectFactory( this );
     private objectViewId: string;
 
     constructor() {

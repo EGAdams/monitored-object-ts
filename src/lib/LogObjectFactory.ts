@@ -27,3 +27,4 @@ export class LogObjectFactory {
         Error.captureStackTrace( obj, this._getCallingMethod );
         return obj.stack.split( '\n' )[ 2 ].match( /at\s+\w+.(\w+)/ )[ 1 ]; }
 }
+ 

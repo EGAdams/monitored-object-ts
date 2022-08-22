@@ -11,7 +11,7 @@ import ITestable from './ITestable';
 /**
  * @description
  *
- * Sends the results of a query to the query result processor pointed to by the api argument object.
+ *  Sends the results of a query to the query result processor pointed to by the api argument object.
  *
  *  In order to send the query, we use axios to establish communication.
  *  An object of this class uses axios to fire off the  query that is included in the passed in api arguments.
@@ -30,7 +30,6 @@ export default class OriginalQueryRunner implements IQueryRunner, ITestable {
     constructor( urlArg: string ) { this.url = urlArg; }
     /**
      *
-     *
      * @param {IApiArgs} apiArguments
      * @return {*}  {Promise<void>}
      * @memberof OriginalQueryRunner
@@ -38,9 +37,7 @@ export default class OriginalQueryRunner implements IQueryRunner, ITestable {
     async runQuery ( apiArgs: IApiArgs ): Promise< void > {
         const xhr = new XMLHttpRequest();
         xhr.open( "POST", this.url, true );
-        // xhr.setRequestHeader( "Content-Type", "application/json; charset=UTF-8" );  // some day...
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // allows "sql=..." syntax!
-
+        xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" ); // allows "sql="... syntax!
         xhr.onreadystatechange = function() {
             if ( xhr.readyState === 4 && xhr.status === 200 ) {
                 try {
@@ -59,7 +56,6 @@ export default class OriginalQueryRunner implements IQueryRunner, ITestable {
                 console.log( "xhr.status: " + xhr.status );
             }
         };
-        // xhr.send( JSON.stringify( { 'sql': apiArgs.query }));  // couldn't get this to work.
         xhr.send( "sql=" + apiArgs.query );
     }
 
@@ -76,3 +72,5 @@ if ( typeof process != "undefined" ) {  // node runner.js testMe
 
 // const queryResults = await axios.get( this.url, { params: { sql: apiArguments.query }});
 // apiArguments.queryResultProcessor.processQueryResult( queryResults ); // when i find out how axios works...
+// xhr.send( JSON.stringify( { 'sql': apiArgs.query }));  // couldn't get this to work.
+// xhr.setRequestHeader( "Content-Type", "application/json; charset=UTF-8" );  // some day...

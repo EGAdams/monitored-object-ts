@@ -21,7 +21,7 @@ export default class MonitoredObjectsTableUpdater {
      */
     public update( monitoredObject: IMonitoredObject ): void {
         console.log( "updating table..." );
-        if ( !monitoredObject.getId  ) { console.log( "*** ERROR: no id sent to update method! ***" ); return; }
+        if ( !monitoredObject.getId  ) { console.log( "*** ERROR: monitored object id not set! ***" ); return; }
         const query = "update monitored_objects set object_data='" + JSON.stringify( monitoredObject ) +
                       "' where object_view_id='" + monitoredObject.getId + "'";
         console.log( `running query${ query }...` ); }
